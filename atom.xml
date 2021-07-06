@@ -131,8 +131,8 @@
   
   <entry>
     <title>集合Map简单介绍</title>
-    <link href="http://www.marcus659.com/2021/07/03/interview-experience/%E5%BE%97%E7%89%A9%E9%9D%A2%E7%BB%8F20210323/"/>
-    <id>http://www.marcus659.com/2021/07/03/interview-experience/%E5%BE%97%E7%89%A9%E9%9D%A2%E7%BB%8F20210323/</id>
+    <link href="http://www.marcus659.com/2021/07/03/interview-experience/%E9%9B%86%E5%90%88Map%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://www.marcus659.com/2021/07/03/interview-experience/%E9%9B%86%E5%90%88Map%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</id>
     <published>2021-07-03T03:48:22.000Z</published>
     <updated>2021-07-05T04:26:05.559Z</updated>
     
@@ -147,6 +147,298 @@
     
     
     <category term="面经" scheme="http://www.marcus659.com/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git merge命令解析</title>
+    <link href="http://www.marcus659.com/2019/09/22/gitmerge%E5%92%8Cgitbase/"/>
+    <id>http://www.marcus659.com/2019/09/22/gitmerge%E5%92%8Cgitbase/</id>
+    <published>2019-09-22T02:56:45.000Z</published>
+    <updated>2021-07-02T05:01:47.265Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;git-merge用途：&quot;&gt;&lt;a href=&quot;#git-merge用途：&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Git手札" scheme="http://www.marcus659.com/categories/Git%E6%89%8B%E6%9C%AD/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git add 相关命令学习</title>
+    <link href="http://www.marcus659.com/2019/09/22/20190922gitadd/"/>
+    <id>http://www.marcus659.com/2019/09/22/20190922gitadd/</id>
+    <published>2019-09-22T02:56:32.000Z</published>
+    <updated>2021-07-02T05:01:47.264Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;git-add-A-和-git-add-的区别&quot;&gt;&lt;a href=&quot;#git-add-A-和-git-add-的区别&quot; class=&quot;headerlink&quot; title=&quot;git add -A 和 git add . 的区别&quot;&gt;&lt;/a&gt;git add -A 和</summary>
+        
+      
+    
+    
+    
+    <category term="Git手札" scheme="http://www.marcus659.com/categories/Git%E6%89%8B%E6%9C%AD/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git push/pull 远程库学习</title>
+    <link href="http://www.marcus659.com/2019/09/22/git%E6%97%A5%E5%B8%B8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/"/>
+    <id>http://www.marcus659.com/2019/09/22/git%E6%97%A5%E5%B8%B8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/</id>
+    <published>2019-09-22T02:56:16.000Z</published>
+    <updated>2021-07-02T05:01:47.263Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;git-push-pull-远程库学习&quot;&gt;&lt;a href=&quot;#git-push-pull-远程库学习&quot; class=&quot;headerlink&quot; title=&quot;git push/pull 远程库学习&quot;&gt;&lt;/a&gt;git push/pull</summary>
+        
+      
+    
+    
+    
+    <category term="Git手札" scheme="http://www.marcus659.com/categories/Git%E6%89%8B%E6%9C%AD/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7.0的是firewall防火墙设置</title>
+    <link href="http://www.marcus659.com/2019/09/21/20190921firewall-config/"/>
+    <id>http://www.marcus659.com/2019/09/21/20190921firewall-config/</id>
+    <published>2019-09-21T10:17:54.000Z</published>
+    <updated>2021-07-02T05:01:47.257Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;CentOS 7.0默认使用的是firewall作为防火墙，使用iptables必须重新设置一下&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;直接关闭防火墙&lt;br&gt;&amp;emsp;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="linux之旅" scheme="http://www.marcus659.com/categories/linux%E4%B9%8B%E6%97%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>chown命令</title>
+    <link href="http://www.marcus659.com/2019/09/21/20190921linux-chown/"/>
+    <id>http://www.marcus659.com/2019/09/21/20190921linux-chown/</id>
+    <published>2019-09-21T10:16:49.000Z</published>
+    <updated>2021-07-02T05:01:47.259Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[TOC]&lt;br&gt;&lt;strong&gt;chown将指定文件的拥有者改为指定的用户或组&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;命令格式&quot;&gt;&lt;a href=&quot;#命令格式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="linux之旅" scheme="http://www.marcus659.com/categories/linux%E4%B9%8B%E6%97%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux解压打包命令</title>
+    <link href="http://www.marcus659.com/2019/09/21/20190921linux-achriveOrUnzip/"/>
+    <id>http://www.marcus659.com/2019/09/21/20190921linux-achriveOrUnzip/</id>
+    <published>2019-09-21T10:15:50.000Z</published>
+    <updated>2021-07-02T05:01:47.258Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h3 id=&quot;tar命令常用参数&quot;&gt;&lt;a href=&quot;#tar命令常用参数&quot; class=&quot;headerlink&quot; title=&quot;tar命令常用参数&quot;&gt;&lt;/a&gt;&lt;strong&gt;tar命令常用参数&lt;/strong&gt;&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;-c:</summary>
+        
+      
+    
+    
+    
+    <category term="linux之旅" scheme="http://www.marcus659.com/categories/linux%E4%B9%8B%E6%97%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下查看CPU型号,内存大小,硬盘空间的命令</title>
+    <link href="http://www.marcus659.com/2019/09/21/linux%E6%A3%80%E6%9F%A5%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E9%9B%86%E5%90%88/"/>
+    <id>http://www.marcus659.com/2019/09/21/linux%E6%A3%80%E6%9F%A5%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E9%9B%86%E5%90%88/</id>
+    <published>2019-09-21T10:13:13.000Z</published>
+    <updated>2021-07-02T05:01:47.261Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;1-查看CPU&quot;&gt;&lt;a href=&quot;#1-查看CPU&quot; class=&quot;headerlink&quot; title=&quot;1. 查看CPU&quot;&gt;&lt;/a&gt;1. 查看CPU&lt;/h4&gt;&lt;p&gt;1.1 查看CPU个数&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="linux之旅" scheme="http://www.marcus659.com/categories/linux%E4%B9%8B%E6%97%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux之间文件传输scp</title>
+    <link href="http://www.marcus659.com/2019/09/21/20190921linux-scp/"/>
+    <id>http://www.marcus659.com/2019/09/21/20190921linux-scp/</id>
+    <published>2019-09-21T10:11:09.000Z</published>
+    <updated>2021-07-02T05:01:47.260Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;把本地的source.txt文件拷贝到192.168.0.10机器上的/home/work目录下&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="linux之旅" scheme="http://www.marcus659.com/categories/linux%E4%B9%8B%E6%97%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>echo命令常用方法总结</title>
+    <link href="http://www.marcus659.com/2019/09/21/20190921shell-echo/"/>
+    <id>http://www.marcus659.com/2019/09/21/20190921shell-echo/</id>
+    <published>2019-09-21T08:11:27.000Z</published>
+    <updated>2021-07-02T05:01:47.262Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;echo 用于字符串的输出。命令格式：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="linux之旅" scheme="http://www.marcus659.com/categories/linux%E4%B9%8B%E6%97%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>常用Git命令</title>
+    <link href="http://www.marcus659.com/2019/08/08/20190808gitCommondCollection/"/>
+    <id>http://www.marcus659.com/2019/08/08/20190808gitCommondCollection/</id>
+    <published>2019-08-08T13:37:56.000Z</published>
+    <updated>2021-07-02T05:01:47.256Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;0-日常操作&quot;&gt;&lt;a href=&quot;#0-日常操作&quot; class=&quot;headerlink&quot; title=&quot;0. 日常操作&quot;&gt;&lt;/a&gt;0. 日常操作&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;拉取项目(默认master)&lt;br&gt;git clonse</summary>
+        
+      
+    
+    
+    
+    <category term="Git手札" scheme="http://www.marcus659.com/categories/Git%E6%89%8B%E6%9C%AD/"/>
+    
+    
+    <category term="git" scheme="http://www.marcus659.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随意留言区</title>
+    <link href="http://www.marcus659.com/2019/08/08/CommentArea/"/>
+    <id>http://www.marcus659.com/2019/08/08/CommentArea/</id>
+    <published>2019-08-08T13:34:36.000Z</published>
+    <updated>2021-07-02T05:01:47.266Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;此处可以随意留言&quot;&gt;&lt;a href=&quot;#此处可以随意留言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="树洞" scheme="http://www.marcus659.com/tags/%E6%A0%91%E6%B4%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>贾从谦</title>
+    <link href="http://www.marcus659.com/2019/03/28/me/"/>
+    <id>http://www.marcus659.com/2019/03/28/me/</id>
+    <published>2019-03-28T07:47:26.000Z</published>
+    <updated>2021-07-02T05:01:47.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基本信息&quot;&gt;&lt;a href=&quot;#基本信息&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="云服务器" scheme="http://www.marcus659.com/categories/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+    <category term="biaoqian" scheme="http://www.marcus659.com/tags/biaoqian/"/>
     
   </entry>
   

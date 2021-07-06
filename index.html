@@ -407,7 +407,7 @@
 
     
     <article
-  id="post-interview-experience/得物面经20210323"
+  id="post-interview-experience/集合Map简单介绍"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -418,7 +418,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/07/03/interview-experience/%E5%BE%97%E7%89%A9%E9%9D%A2%E7%BB%8F20210323/"
+  <a class="article-title" href="/2021/07/03/interview-experience/%E9%9B%86%E5%90%88Map%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"
     >集合Map简单介绍</a> 
 </h2>
  
@@ -427,7 +427,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/07/03/interview-experience/%E5%BE%97%E7%89%A9%E9%9D%A2%E7%BB%8F20210323/" class="article-date">
+      <a href="/2021/07/03/interview-experience/%E9%9B%86%E5%90%88Map%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="article-date">
   <time datetime="2021-07-03T03:48:22.000Z" itemprop="datePublished">2021-07-03</time>
 </a>    
     </div>
@@ -439,7 +439,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">Map--&gt;HashMap</span><br><span class="line">Map--&gt;HashTable</span><br><span class="line">Map--&gt;TreeMap</span><br><span class="line">Map--&gt;IdentityHashMap</span><br><span class="line">Map--&gt;WeakHashMap</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">Collection--&gt;List</span><br><span class="line">List--&gt;ArrayList</span><br><span class="line">List--&gt;LinkedList</span><br><span class="line">List--&gt;Vetor</span><br><span class="line">Collection--&gt;Set</span><br><span class="line">Collection--&gt;Queue</span><br><span class="line">Collection--&gt;SortedSet</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2021/07/03/interview-experience/%E5%BE%97%E7%89%A9%E9%9D%A2%E7%BB%8F20210323/"
+      <a class="article-more-link" href="/2021/07/03/interview-experience/%E9%9B%86%E5%90%88Map%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"
         >阅读更多...</a
       >
        
@@ -463,9 +463,356 @@
 </article>
 
     
+    <article
+  id="post-gitmerge和gitbase"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/22/gitmerge%E5%92%8Cgitbase/"
+    >git merge命令解析</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/09/22/gitmerge%E5%92%8Cgitbase/" class="article-date">
+  <time datetime="2019-09-22T02:56:45.000Z" itemprop="datePublished">2019-09-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Git%E6%89%8B%E6%9C%AD/">Git手札</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[TOC]</p>
+<h2 id="git-merge用途："><a href="#git-merge用途：" class="headerlink" title="git-merge用途："></a>git-merge用途：</h2><ol>
+<li>用于git-pull中，来整合另一代码仓库中的变化（即：git pull = git fetch + git merge）</li>
+<li>用于从一个分支到另一个分支的合并<blockquote>
+<p>警告：运行git-merge时含有大量的未commit文件很容易让你陷入困境，这将使你在冲突中难以回退。因此非常不鼓励在使用git-merge时存在未commit的文件，建议使用git-stash命令将这些未commit文件暂存起来，并在解决冲突以后使用git stash pop把这些未commit文件还原出来。</p>
+</blockquote>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-20190922gitadd"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/22/20190922gitadd/"
+    >git add 相关命令学习</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/09/22/20190922gitadd/" class="article-date">
+  <time datetime="2019-09-22T02:56:32.000Z" itemprop="datePublished">2019-09-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Git%E6%89%8B%E6%9C%AD/">Git手札</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="git-add-A-和-git-add-的区别"><a href="#git-add-A-和-git-add-的区别" class="headerlink" title="git add -A 和 git add . 的区别"></a>git add -A 和 git add . 的区别</h2><ul>
+<li>git add -A  提交<strong>所有变化</strong><br>(git add –all 的缩写)<br>&emsp;</li>
+<li>git add -u  提交被<strong>修改(modified)</strong> 和被 <strong>删除(deleted)</strong> 文件，不包括新文件(new)<br>(git add –update 的缩写)<br>&emsp;</li>
+<li>git add   提交 <strong>新文件(new)</strong> 和被 <strong>修改(modified)</strong>  文件，不包括被删除(deleted)文件</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-git日常操作命令"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/22/git%E6%97%A5%E5%B8%B8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/"
+    >git push/pull 远程库学习</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/09/22/git%E6%97%A5%E5%B8%B8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2019-09-22T02:56:16.000Z" itemprop="datePublished">2019-09-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Git%E6%89%8B%E6%9C%AD/">Git手札</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="git-push-pull-远程库学习"><a href="#git-push-pull-远程库学习" class="headerlink" title="git push/pull 远程库学习"></a>git push/pull 远程库学习</h3><p>git push 命令用于将本地分支更新，推送到远程主机。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong> ： 分支推送顺序写法是&lt;来源地&gt;:&lt;目的地&gt;</p>
+<ul>
+<li>git pull 是&lt;远程分支&gt;:&lt;本地分支&gt;</li>
+<li>git push 是&lt;本地分支&gt;:&lt;远程分支&gt;<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3></li>
+</ul>
+<p>1.本地分支与远程分支存在追踪关系</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push origin master</span></span><br></pre></td></tr></table></figure>
+<p>以上命令，将本地master分支推送到origin主机的master分支。<br>&nbsp;<br>2.省略本地分支</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push origin :master</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 等同于</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push origin --delete master</span></span><br></pre></td></tr></table></figure>
+<p>以上推送一个空的本地分支到远程分支，表示删除远程分支<br>&nbsp;<br>3.使用-u选项制定一个默认主机，这样在后面就可以不添加任何参数，使用git push</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push -u origin master</span></span><br></pre></td></tr></table></figure>
+<p>以上表示将本地的master分支推送到origin主机，同时指定origin为默认主机，</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-20190921firewall-config"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/21/20190921firewall-config/"
+    >CentOS 7.0的是firewall防火墙设置</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/09/21/20190921firewall-config/" class="article-date">
+  <time datetime="2019-09-21T10:17:54.000Z" itemprop="datePublished">2019-09-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux%E4%B9%8B%E6%97%85/">linux之旅</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>CentOS 7.0默认使用的是firewall作为防火墙，使用iptables必须重新设置一下</p>
+<ol>
+<li>直接关闭防火墙<br>&emsp;<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service <span class="comment">#停止firewall</span></span><br></pre></td></tr></table></figure>
+&emsp;<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment">#禁止firewall开机启动</span></span><br></pre></td></tr></table></figure>
+&emsp;<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state <span class="comment">#查看状态，running 表示运行</span></span><br></pre></td></tr></table></figure>
+&emsp;<br>在不改变状态的条件下重新加载防火墙：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+&emsp;</li>
+</ol>
+<p>启用某个服务 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-service=https <span class="comment">#临时</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --permanent --zone=public --add-service=https <span class="comment">#永久</span></span><br></pre></td></tr></table></figure>
+
+<p>开启某个端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-port=8080-8081/tcp //永久</span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --add-port=8080-8081/tcp //临时</span><br></pre></td></tr></table></figure>
+<p>使用命令加载设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>查看开启的端口和服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --list-services </span><br><span class="line"><span class="comment">#服务空格隔开   </span></span><br><span class="line"></span><br><span class="line">例如 dhcpv6-client https ss</span><br><span class="line"></span><br><span class="line">firewall-cmd --permanent --zone=public --list-ports</span><br><span class="line"><span class="comment">#端口空格隔开 </span></span><br><span class="line"></span><br><span class="line">例如 8080-8081/tcp 8388/tcp 80/tcp</span><br></pre></td></tr></table></figure>
+<p>设置某个ip 访问某个服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-rich-rule=<span class="string">&quot;rule family=&quot;</span>ipv4<span class="string">&quot; source address=&quot;</span>192.168.0.4/24<span class="string">&quot; service name=&quot;</span>http<span class="string">&quot; accept&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ip 192.168.0.4/24 访问 http</span></span><br></pre></td></tr></table></figure>
+<p>删除上面设置的规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --remove-rich-rule=<span class="string">&quot;rule family=&quot;</span>ipv4<span class="string">&quot; source address=&quot;</span>192.168.0.4/24<span class="string">&quot; service name=&quot;</span>http<span class="string">&quot; accept&quot;</span></span><br></pre></td></tr></table></figure>
+<p>检查设定是否生效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -n | grep 21</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:21 ctstate NEW</span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+<p>显示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public (default)</span><br><span class="line">  interfaces:</span><br><span class="line">  sources:</span><br><span class="line">  services: dhcpv6-client ftp ssh</span><br><span class="line">  ports:</span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports:</span><br><span class="line">  icmp-blocks:</span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure>
+<p>查询服务的启动状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-service ftp</span><br><span class="line">yes</span><br><span class="line">firewall-cmd --query-service ssh</span><br><span class="line">yes</span><br><span class="line">firewall-cmd --query-service samba</span><br><span class="line">no</span><br><span class="line">firewall-cmd --query-service http</span><br><span class="line">no</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>&emsp;<br>2. 设置<br>iptables serviceyum -y install iptables-services<br>如果要修改防火墙配置，<br>如增加防火墙端口3306<br>vi /etc/sysconfig/iptables 增加规则-A INPUT -m state –state NEW -m tcp -p tcp –dport 3306 -j ACCEPT保存退出后</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart iptables.service </span><br><span class="line"><span class="comment">#重启防火墙使配置生效</span></span><br><span class="line">systemctl <span class="built_in">enable</span> iptables.service </span><br><span class="line"><span class="comment">#设置防火墙开机启动最后重启系统使设置生效即可。</span></span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-20190921linux-chown"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/21/20190921linux-chown/"
+    >chown命令</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/09/21/20190921linux-chown/" class="article-date">
+  <time datetime="2019-09-21T10:16:49.000Z" itemprop="datePublished">2019-09-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux%E4%B9%8B%E6%97%85/">linux之旅</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[TOC]<br><strong>chown将指定文件的拥有者改为指定的用户或组</strong></p>
+<hr>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown [-cfhvR] [--<span class="built_in">help</span>] [--version] user[:group] file...</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>&emsp;通过chown改变文件的拥有者和群组。在更改文件的所有者或所属群组时，可以使用用户名称和用户识别码设置。普通用户不能将自己的文件改变成其他的拥有者。其操作权限一般为管理员。</p>
+<hr>
+<h4 id="命令参数："><a href="#命令参数：" class="headerlink" title="命令参数："></a>命令参数：</h4><blockquote>
+<p>必要参数:　　　　</p>
+<ul>
+<li> -c 显示更改的部分的信息　　　　</li>
+<li> -f 忽略错误信息　　　　</li>
+<li>-h 修复符号链接　　　　</li>
+<li>-R 处理指定目录以及其子目录下的所有文件　　　　</li>
+<li>-v 显示详细的处理信息　　　　</li>
+<li>-deference 作用于符号链接的指向，而不是链接文件本身　　</li>
+</ul>
+</blockquote>
+<p>&emsp;</p>
+<blockquote>
+<p><strong>选择参数</strong>:</p>
+<ul>
+<li>–reference=<br>&lt;目录或文件&gt; 把指定的目录/文件作为参考，把操作的文件/目录设置成参考文件/目录相同拥有者和群组　　　　</li>
+<li>–from=<br>&lt;当前用户：当前群组&gt; 只有当前用户和群组跟指定的用户和群组相同时才进行改变　　　　</li>
+<li>–help <br>显示帮助信息　　　　</li>
+<li>–version <br>显示版本信息</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h4> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
   </article>
   
 
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
   
 </section>
 </div>

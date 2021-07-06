@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Tomcat的简介 |  技術工程51區</title>
+      <title>git merge命令解析 |  技術工程51區</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -51,7 +51,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Tomcat深入分析"
+  id="post-gitmerge和gitbase"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -62,7 +62,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Tomcat的简介
+  git merge命令解析
 </h1>
  
 
@@ -70,15 +70,19 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/07/03/Tomcat%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90/" class="article-date">
-  <time datetime="2021-07-03T05:48:22.000Z" itemprop="datePublished">2021-07-03</time>
-</a>   
+      <a href="/2019/09/22/gitmerge%E5%92%8Cgitbase/" class="article-date">
+  <time datetime="2019-09-22T02:56:45.000Z" itemprop="datePublished">2019-09-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Git%E6%89%8B%E6%9C%AD/">Git手札</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.3k</span>
+            <span class="post-count">142</span>
         </span>
     </span>
 
@@ -87,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -102,125 +106,12 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-Tomcat的简介"><a href="#1-Tomcat的简介" class="headerlink" title="1. Tomcat的简介"></a>1. Tomcat的简介</h1><h2 id="web概念"><a href="#web概念" class="headerlink" title="web概念"></a>web概念</h2><ol>
-<li>软件架构</li>
-<li>资源分类<ol>
-<li>静态资源：所有用户访问后得到结果都是一样，可以直接被浏览器解析</li>
-<li>动态资源：每个用户访问都是不一样的，需要进行</li>
-</ol>
-</li>
-<li>网络通信三要素<ol>
-<li>IP地址</li>
-<li>端口号：应用程序在计算机上的唯一标识。0-65536</li>
-<li>传输协议<ul>
-<li>TPC协议：三次握手</li>
-<li>UDP协议</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h2><ol>
-<li>服务器</li>
-<li>服务器软件：接收用户请求</li>
-<li>web服务器软件：接收用户请求，处理器扭曲做出相应</li>
-<li>常见web服务器<ul>
-<li>webLogic</li>
-<li>webSphere</li>
-<li>JBoss</li>
-<li>Tomcat：Apache基金组织<span id="more"></span>
-<h1 id="2-Tomcat的架构"><a href="#2-Tomcat的架构" class="headerlink" title="2. Tomcat的架构"></a>2. Tomcat的架构</h1></li>
-</ul>
-</li>
-</ol>
-<h2 id="HTTP工作原理"><a href="#HTTP工作原理" class="headerlink" title="HTTP工作原理"></a>HTTP工作原理</h2><p>HTTP协议是浏览器与服务器之间的数据传输协议，作为应用层协议，HTTP是基于TCP/IP协议，因此传输数据包都是由TCP/IP协议进行传输，HTTP只是定义了数据包的封装格式。</p>
-<h2 id="HTTP服务器请求处理"><a href="#HTTP服务器请求处理" class="headerlink" title="HTTP服务器请求处理"></a>HTTP服务器请求处理</h2><p>浏览器发送个服务端一个HTTP格式请求，HTTP服务器接收到请求后，需要调用服务端程序</p>
-<h2 id="Servlet容器工作流程"><a href="#Servlet容器工作流程" class="headerlink" title="Servlet容器工作流程"></a>Servlet容器工作流程</h2><p>HTTP服务器不直接调用Servlet，而且将请求交给Servlet容器，具体步骤如下：</p>
-<ol>
-<li>客户端请求资源，HTTP服务器凤凰组昂成一个ServletRequest队形</li>
-<li>然后调用Servlet容器的<code>service</code>方法</li>
-<li>Servlet容器拿到请求后，根据<code>URL和Servlet的映射关系</code>找到相应的Servlet</li>
-<li>加载Servlet，使用反射创建这个Servlet，并调动<code>init</code>方法初始化</li>
-<li>调用Servlet的<code>service</code>方法用来处理请求</li>
-</ol>
-<h2 id="Tomcat的两个核心功能"><a href="#Tomcat的两个核心功能" class="headerlink" title="Tomcat的两个核心功能"></a>Tomcat的两个核心功能</h2><ol>
-<li>处理Socket连接，负责网络字节流与Request和Response对象的转化</li>
-<li>加载和管理Servlet，以及具体处理Request请求</li>
-</ol>
-<p>两个核心组件连接器<code>Connector</code>和<code>Container</code>来分别做两件事情。</p>
-<h2 id="连接器-coyote"><a href="#连接器-coyote" class="headerlink" title="连接器 - coyote"></a>连接器 - coyote</h2><p>coyote是Tomcat的连接器框架名称，是Tomcat服务器提供的客户端访问外部接口，客户端通过coyote月服务器建立连接、发送请求并接受响应。</p>
-<p><strong>coyote封装了底层网络通信</strong>，并未Catalina容器提供了统一的接口，是Catalina容器月具体的请求协议及IO操作方式完全解耦。Coyote将Socket输入封装为Request对象，交由Catalina容器进行处理，处理完后，Catalina通过Coyote提供的Response对象将结果写入到输出流。</p>
-<p>Coyote负责接受请求并进行封装响应，作为独立的模块只负责具体的协议解析和IO相关操作，与Servlet规范实现没有直接关系，因此Request和Response对象也并未实现Servlet规范的对应接口。</p>
-<p><strong>一个容器支持多个连接器</strong></p>
-<h2 id="IO模型与协议"><a href="#IO模型与协议" class="headerlink" title="IO模型与协议"></a>IO模型与协议</h2><p>在Coyote中，Tomcat支持多种I/O模型和应用层协议，在Tomcat 8.5/9.0版本起，移除了对<code>BIO</code>的支持。</p>
-<table>
-<thead>
-<tr>
-<th align="left"><strong>IO模型</strong></th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">NIO</td>
-<td>非阻塞I/O，采用Java NIO类库实现</td>
-</tr>
-<tr>
-<td align="left">NIO2</td>
-<td>异步I/O，采用JDK 7的NIO2类库实现</td>
-</tr>
-<tr>
-<td align="left">APR</td>
-<td>采用Apache可移植运行库实现，是C/C++编写的本地库，</td>
-</tr>
-</tbody></table>
-<p>Tomcat支持的应用层协议：</p>
-<table>
-<thead>
-<tr>
-<th>应用层协议</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HTTP/1.1</td>
-<td>大部分web应用采用的访问协议</td>
-</tr>
-<tr>
-<td>AJP</td>
-<td>在用于和Apache Web服务器集成，已实现对静态资源优化及集群部署</td>
-</tr>
-<tr>
-<td>HTTP/2</td>
-<td>HTTP 2.0大幅提升Web性能，下一代HTTP协议，自8.5及9.0版本后支持</td>
-</tr>
-</tbody></table>
-<h2 id="Tomcat启动流程"><a href="#Tomcat启动流程" class="headerlink" title="Tomcat启动流程"></a>Tomcat启动流程</h2><ol>
-<li>启动tomcat，运行bin/startup.bat（如果是linux环境，则需要调用bin/startup.sh），在startup.bat脚本中，调用了catalina.bat脚本</li>
-<li>在<code>catalina.bat</code>脚本中进行了<code>JAVA_OPTS</code>参数的配置，然后调用了<code>org.apache.catalina.startup.Bootstrap</code>类中的<code>main</code>方法</li>
-<li>在<code>Bootstrap</code>的<code>main</code>方法中调用了<code>init</code>方法，用于初始化<code>Catalina</code>类并调用<code>setParentClassLoader()</code>方法设置其<strong>类加载器</strong></li>
-<li>在<code>Bootstrap</code>的<code>main</code>方法中调用了<code>load</code>方法，然后分别调用三个方法<code>setAwait(true)</code>、<code>load(args)</code>、<code>start()</code><ul>
-<li><code>setAwait(true)</code>方法，用于设置<code>Catalina</code>对象是阻塞的</li>
-<li><code>load(args)</code>方法，调用<code>Catalina</code>对象<code>load()</code>方法，使用流去加载Catalina配置，如<code>conf/server.xml</code>，然后由交付于<code>Digester</code>对象进行拆解xml，<code>Server</code>对象就是在解析中进行初始化的</li>
-<li><code>start()</code>方法，调用<code>Server</code>对象的<code>start()</code>方法，并同步代码执行<code>Lifecycle</code>、<code>LifecycleBase</code>的方法实现。</li>
-</ul>
-</li>
-</ol>
-<p><img src="C:\Users\Lovel\AppData\Roaming\Typora\typora-user-images\image-20210403122110189.png" alt="image-20210403122110189"></p>
-<h3 id="Lifecycle接口定义"><a href="#Lifecycle接口定义" class="headerlink" title="Lifecycle接口定义"></a>Lifecycle接口定义</h3><p>在Tomcat中的所有组件均存在<strong>初始化</strong>、<strong>启动</strong>、<strong>停止</strong>等生命周期方法，所以在Tomcat设计时，便基于生命周期管理抽象出一个<code>Lifecycle</code>接口，而组件Server、Service、Container、Executor、Connector都实现了<code>Lifecycle</code>接口，其中部分方法有使用<strong>模板设计模式</strong>抽取出公共逻辑，进行复用。</p>
-<ol>
-<li><code>init()</code>：初始化组件</li>
-<li><code>start()</code>：启动组件</li>
-<li><code>stop()</code>：停止组件</li>
-<li><code>destroy()</code>：销毁组件</li>
-</ol>
-<p><img src="C:\Users\Lovel\Desktop\StandardEngine.png" alt="StandardEngine"></p>
-<h2 id="Tomcat请求处理流程"><a href="#Tomcat请求处理流程" class="headerlink" title="Tomcat请求处理流程"></a>Tomcat请求处理流程</h2><h1 id="3-Tomcat服务器配置"><a href="#3-Tomcat服务器配置" class="headerlink" title="3. Tomcat服务器配置"></a>3. Tomcat服务器配置</h1><h1 id="4-Tomcat的管理配置"><a href="#4-Tomcat的管理配置" class="headerlink" title="4. Tomcat的管理配置"></a>4. Tomcat的管理配置</h1><h1 id="5-Tomcat集群"><a href="#5-Tomcat集群" class="headerlink" title="5. Tomcat集群"></a>5. Tomcat集群</h1><h2 id="tomcat集群简介"><a href="#tomcat集群简介" class="headerlink" title="tomcat集群简介"></a>tomcat集群简介</h2><p>tomcat集群是由多个tomcat进程，通过<code>ngnix</code>进行反向代理，使用<code>轮询</code>、<code>权重</code>、<code>ip_hash</code>的方式去进行负载策略，</p>
-<h2 id="session共享问题"><a href="#session共享问题" class="headerlink" title="session共享问题"></a>session共享问题</h2><ol>
-<li><p>ip_hash策略</p>
-<p>同一个ip的hash值肯定是相同的，顾可以使用此类方式将用户请求负载到之前有session的那个tomcat进程上。</p>
-</li>
-<li><p>session复制</p>
-<p>session复制可以在小型集群中进行session复制，官方建议此方案适用于四及四个以下tomcat集群</p>
+  <p>[TOC]</p>
+<h2 id="git-merge用途："><a href="#git-merge用途：" class="headerlink" title="git-merge用途："></a>git-merge用途：</h2><ol>
+<li>用于git-pull中，来整合另一代码仓库中的变化（即：git pull = git fetch + git merge）</li>
+<li>用于从一个分支到另一个分支的合并<blockquote>
+<p>警告：运行git-merge时含有大量的未commit文件很容易让你陷入困境，这将使你在冲突中难以回退。因此非常不鼓励在使用git-merge时存在未commit的文件，建议使用git-stash命令将这些未commit文件暂存起来，并在解决冲突以后使用git stash pop把这些未commit文件还原出来。</p>
+</blockquote>
 </li>
 </ol>
  
@@ -293,32 +184,30 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.marcus659.com/2021/07/03/Tomcat%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.marcus659.com/2019/09/22/gitmerge%E5%92%8Cgitbase/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/" rel="tag">Java Web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a></li></ul>
-
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2021/07/04/HashMap%E7%9A%84%E9%95%BF%E5%BA%A6%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E6%98%AF2%E7%9A%84n%E6%AC%A1%E5%B9%82/" class="article-nav-link">
+      <a href="/2021/07/03/interview-experience/%E9%9B%86%E5%90%88Map%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            HashMap的长度为什么必须是2的n次方
+            集合Map简单介绍
           
         </div>
       </a>
     
     
-      <a href="/2021/07/03/interview-experience/%E9%9B%86%E5%90%88Map%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="article-nav-link">
+      <a href="/2019/09/22/20190922gitadd/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">集合Map简单介绍</div>
+        <div class="article-nav-title">git add 相关命令学习</div>
       </a>
     
   </nav>

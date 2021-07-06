@@ -1,6 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>常用Git命令</title>
+    <url>/2019/08/08/20190808gitCommondCollection/</url>
+    <content><![CDATA[<h4 id="0-日常操作"><a href="#0-日常操作" class="headerlink" title="0. 日常操作"></a>0. 日常操作</h4><ol>
+<li><p>拉取项目(默认master)<br>git clonse 地址</p>
+</li>
+<li><p>抓取远程仓库代码到本地<br>git pull</p>
+</li>
+<li><p>推送本地代码到仓库<br>git push</p>
+</li>
+<li><p>查看所有分支<br>git branch -a </p>
+</li>
+<li><p>切换分支<br>git checkout <branch></p>
+</li>
+<li><p>合并指定分支到当前分支<br>git merge origin/<branch></p>
+</li>
+<li><p>从当前本地分支创建新的本地分支,并切换到新分支<br>git checkout -b <branch></p>
+</li>
+<li><p>提交本地分支到远程仓库<br>git push origin <branch></p>
+</li>
+<li><p>仓库指针指向设置<br>git branch –set-upstream-to=origin/<branch></p>
+</li>
+<li><p>删除本地分支<br>git branch -D <branch></p>
+</li>
+<li><p>删除远程分支<br>git push origin –delete <branch></p>
+</li>
+<li><p>打标签<br>git tag v1.0.0.1 –m “版本说明”  —-标签版本号，说明<br>git push origin v1.0.0.1   ——–推送至服务端</p>
+</li>
+<li><p> 生成一个可供发布的压缩包<br>git archive</p>
+</li>
+<li><p>Git 仓库地址修改方法<br>git remote set-url origin [NEW_URL]</p>
+</li>
+</ol>
+<p><img src="en-resource://database/1363:1" alt="3bc9d5f2c49a713c776e69676d7d56c5.png"></p>
+<ul>
+<li>Workspace：工作区</li>
+<li>Index / Stage：暂存区</li>
+<li>Repository：仓库区（或本地仓库）</li>
+<li>Remote：远程仓库</li>
+</ul>
+<p>[TOC]</p>
+<h4 id="1-新建代码库"><a href="#1-新建代码库" class="headerlink" title="1. 新建代码库"></a>1. 新建代码库</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在当前目录新建一个Git代码库</span></span><br><span class="line">$ git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个目录，将其初始化为Git代码库</span></span><br><span class="line">$ git init [project-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载一个项目和它的整个代码历史</span></span><br><span class="line">$ git <span class="built_in">clone</span> [url]</span><br></pre></td></tr></table></figure>
+<h4 id="2-设置配置文件"><a href="#2-设置配置文件" class="headerlink" title="2. 设置配置文件"></a>2. 设置配置文件</h4><p>&emsp;Git的设置文件为.gitconfig，用户主目录下（全局配置），项目目录下（项目配置）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 显示当前的Git配置</span></span><br><span class="line">$ git config --list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑Git配置文件</span></span><br><span class="line">$ git config -e [--global]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置提交代码时的用户信息</span></span><br><span class="line">$ git config [--global] user.name <span class="string">&quot;[name]&quot;</span></span><br><span class="line">$ git config [--global] user.email <span class="string">&quot;[email address]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-增加-删除文件"><a href="#3-增加-删除文件" class="headerlink" title="3. 增加/删除文件"></a>3. 增加/删除文件</h4><p>添加到暂存区或移除暂存区</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 添加指定文件到暂存区</span></span><br><span class="line">$ git add [file1] [file2] ...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加指定目录到暂存区，包括子目录</span></span><br><span class="line">$ git add [dir]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加当前目录的所有文件到暂存区</span></span><br><span class="line">$ git add .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加每个变化前，都会要求确认</span></span><br><span class="line"><span class="comment"># 对于同一个文件的多处变化，可以实现分次提交</span></span><br><span class="line">$ git add -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除工作区文件，并且将这次删除放入暂存区</span></span><br><span class="line">$ git rm [file1] [file2] ...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止追踪指定文件，但该文件会保留在工作区</span></span><br><span class="line">$ git rm --cached [file]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改名文件，并且将这个改名放入暂存区</span></span><br><span class="line">$ git mv [file-original] [file-renamed]</span><br></pre></td></tr></table></figure>
+<h4 id="4-代码提交到仓库"><a href="#4-代码提交到仓库" class="headerlink" title="4. 代码提交到仓库"></a>4. 代码提交到仓库</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 提交暂存区到仓库区</span></span><br><span class="line">$ git commit -m [message]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交暂存区的指定文件到仓库区</span></span><br><span class="line">$ git commit [file1] [file2] ... -m [message]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交工作区自上次commit之后的变化，直接到仓库区</span></span><br><span class="line">$ git commit -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交时显示所有diff信息</span></span><br><span class="line">$ git commit -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用一次新的commit，替代上一次提交</span></span><br><span class="line"><span class="comment"># 如果代码没有任何新变化，则用来改写上一次commit的提交信息</span></span><br><span class="line">$ git commit --amend -m [message]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重做上一次commit，并包括指定文件的新变化</span></span><br><span class="line">$ git commit --amend [file1] [file2] ...</span><br></pre></td></tr></table></figure>
+<h4 id="5-分支相关操作"><a href="#5-分支相关操作" class="headerlink" title="5. 分支相关操作"></a>5. 分支相关操作</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 列出所有本地分支</span></span><br><span class="line">$ git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有远程分支</span></span><br><span class="line">$ git branch -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有本地分支和远程分支</span></span><br><span class="line">$ git branch -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，但依然停留在当前分支</span></span><br><span class="line">$ git branch [branch-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，并切换到该分支</span></span><br><span class="line">$ git checkout -b [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，指向指定commit</span></span><br><span class="line">$ git branch [branch] [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，与指定的远程分支建立追踪关系</span></span><br><span class="line">$ git branch --track [branch] [remote-branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到指定分支，并更新工作区</span></span><br><span class="line">$ git checkout [branch-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到上一个分支</span></span><br><span class="line">$ git checkout -</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立追踪关系，在现有分支与指定的远程分支之间</span></span><br><span class="line">$ git branch --set-upstream [branch] [remote-branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并指定分支到当前分支</span></span><br><span class="line">$ git merge [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择一个commit，合并进当前分支</span></span><br><span class="line">$ git cherry-pick [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">$ git branch -d [branch-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程分支</span></span><br><span class="line">$ git push origin --delete [branch-name]</span><br><span class="line">$ git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-标签操作"><a href="#6-标签操作" class="headerlink" title="6. 标签操作"></a>6. 标签操作</h4><p>tag作用，为当前代码版本标记别名，下次拉取代码时，可根据tag直接拉取该版本的代码。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 列出所有tag</span></span><br><span class="line">$ git tag</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个tag在当前commit</span></span><br><span class="line">$ git tag [tag]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个tag在指定commit</span></span><br><span class="line">$ git tag [tag] [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地tag</span></span><br><span class="line">$ git tag -d [tag]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程tag</span></span><br><span class="line">$ git push origin :refs/tags/[tagName]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看tag信息</span></span><br><span class="line">$ git show [tag]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交指定tag</span></span><br><span class="line">$ git push [remote] [tag]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交所有tag</span></span><br><span class="line">$ git push [remote] --tags</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，指向某个tag</span></span><br><span class="line">$ git checkout -b [branch] [tag]</span><br></pre></td></tr></table></figure>
+<h4 id="7-查看信息"><a href="#7-查看信息" class="headerlink" title="7. 查看信息"></a>7. 查看信息</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 显示有变更的文件</span></span><br><span class="line">$ git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示当前分支的版本历史</span></span><br><span class="line">$ git <span class="built_in">log</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示commit历史，以及每次commit发生变更的文件</span></span><br><span class="line">$ git <span class="built_in">log</span> --<span class="built_in">stat</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索提交历史，根据关键词</span></span><br><span class="line">$ git <span class="built_in">log</span> -S [keyword]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某个commit之后的所有变动，每个commit占据一行</span></span><br><span class="line">$ git <span class="built_in">log</span> [tag] HEAD --pretty=format:%s</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某个commit之后的所有变动，其&quot;提交说明&quot;必须符合搜索条件</span></span><br><span class="line">$ git <span class="built_in">log</span> [tag] HEAD --grep feature</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某个文件的版本历史，包括文件改名</span></span><br><span class="line">$ git <span class="built_in">log</span> --follow [file]</span><br><span class="line">$ git whatchanged [file]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示指定文件相关的每一次diff</span></span><br><span class="line">$ git <span class="built_in">log</span> -p [file]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示过去5次提交</span></span><br><span class="line">$ git <span class="built_in">log</span> -5 --pretty --oneline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示所有提交过的用户，按提交次数排序</span></span><br><span class="line">$ git shortlog -sn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示指定文件是什么人在什么时间修改过</span></span><br><span class="line">$ git blame [file]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示暂存区和工作区的差异</span></span><br><span class="line">$ git diff</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示暂存区和上一个commit的差异</span></span><br><span class="line">$ git diff --cached [file]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示工作区与当前分支最新commit之间的差异</span></span><br><span class="line">$ git diff HEAD</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示两次提交之间的差异</span></span><br><span class="line">$ git diff [first-branch]...[second-branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示今天你写了多少行代码</span></span><br><span class="line">$ git diff --shortstat <span class="string">&quot;@&#123;0 day ago&#125;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某次提交的元数据和内容变化</span></span><br><span class="line">$ git show [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某次提交发生变化的文件</span></span><br><span class="line">$ git show --name-only [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某次提交时，某个文件的内容</span></span><br><span class="line">$ git show [commit]:[filename]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示当前分支的最近几次提交</span></span><br><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+<h4 id="8-远程同步"><a href="#8-远程同步" class="headerlink" title="8. 远程同步"></a>8. 远程同步</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 下载远程仓库的所有变动</span></span><br><span class="line">$ git fetch [remote]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示所有远程仓库</span></span><br><span class="line">$ git remote -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某个远程仓库的信息</span></span><br><span class="line">$ git remote show [remote]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加一个新的远程仓库，并命名</span></span><br><span class="line">$ git remote add [shortname] [url]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取回远程仓库的变化，并与本地分支合并</span></span><br><span class="line">$ git pull [remote] [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传本地指定分支到远程仓库</span></span><br><span class="line">$ git push [remote] [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 强行推送当前分支到远程仓库，即使有冲突</span></span><br><span class="line">$ git push [remote] --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送所有分支到远程仓库</span></span><br><span class="line">$ git push [remote] --all</span><br></pre></td></tr></table></figure>
+<h4 id="9-撤销部分操作"><a href="#9-撤销部分操作" class="headerlink" title="9. 撤销部分操作"></a>9. 撤销部分操作</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 恢复暂存区的指定文件到工作区</span></span><br><span class="line">$ git checkout [file]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复某个commit的指定文件到暂存区和工作区</span></span><br><span class="line">$ git checkout [commit] [file]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复暂存区的所有文件到工作区</span></span><br><span class="line">$ git checkout .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span></span><br><span class="line">$ git reset [file]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置暂存区与工作区，与上一次commit保持一致</span></span><br><span class="line">$ git reset --hard</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span></span><br><span class="line">$ git reset [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span></span><br><span class="line">$ git reset --hard [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置当前HEAD为指定commit，但保持暂存区和工作区不变</span></span><br><span class="line">$ git reset --keep [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个commit，用来撤销指定commit</span></span><br><span class="line"><span class="comment"># 后者的所有变化都将被前者抵消，并且应用到当前分支</span></span><br><span class="line">$ git revert [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 暂时将未提交的变化移除，稍后再移入</span></span><br><span class="line">$ git stash</span><br><span class="line">$ git stash pop</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Git手札</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS 7.0的是firewall防火墙设置</title>
+    <url>/2019/09/21/20190921firewall-config/</url>
+    <content><![CDATA[<p>CentOS 7.0默认使用的是firewall作为防火墙，使用iptables必须重新设置一下</p>
+<ol>
+<li>直接关闭防火墙<br>&emsp;<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld.service <span class="comment">#停止firewall</span></span><br></pre></td></tr></table></figure>
+&emsp;<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment">#禁止firewall开机启动</span></span><br></pre></td></tr></table></figure>
+&emsp;<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --state <span class="comment">#查看状态，running 表示运行</span></span><br></pre></td></tr></table></figure>
+&emsp;<br>在不改变状态的条件下重新加载防火墙：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+&emsp;</li>
+</ol>
+<p>启用某个服务 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-service=https <span class="comment">#临时</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --permanent --zone=public --add-service=https <span class="comment">#永久</span></span><br></pre></td></tr></table></figure>
+
+<p>开启某个端口</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-port=8080-8081/tcp //永久</span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --add-port=8080-8081/tcp //临时</span><br></pre></td></tr></table></figure>
+<p>使用命令加载设置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>查看开启的端口和服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --list-services </span><br><span class="line"><span class="comment">#服务空格隔开   </span></span><br><span class="line"></span><br><span class="line">例如 dhcpv6-client https ss</span><br><span class="line"></span><br><span class="line">firewall-cmd --permanent --zone=public --list-ports</span><br><span class="line"><span class="comment">#端口空格隔开 </span></span><br><span class="line"></span><br><span class="line">例如 8080-8081/tcp 8388/tcp 80/tcp</span><br></pre></td></tr></table></figure>
+<p>设置某个ip 访问某个服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-rich-rule=<span class="string">&quot;rule family=&quot;</span>ipv4<span class="string">&quot; source address=&quot;</span>192.168.0.4/24<span class="string">&quot; service name=&quot;</span>http<span class="string">&quot; accept&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ip 192.168.0.4/24 访问 http</span></span><br></pre></td></tr></table></figure>
+<p>删除上面设置的规则</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --remove-rich-rule=<span class="string">&quot;rule family=&quot;</span>ipv4<span class="string">&quot; source address=&quot;</span>192.168.0.4/24<span class="string">&quot; service name=&quot;</span>http<span class="string">&quot; accept&quot;</span></span><br></pre></td></tr></table></figure>
+<p>检查设定是否生效</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">iptables -L -n | grep 21</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:21 ctstate NEW</span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+<p>显示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public (default)</span><br><span class="line">  interfaces:</span><br><span class="line">  sources:</span><br><span class="line">  services: dhcpv6-client ftp ssh</span><br><span class="line">  ports:</span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports:</span><br><span class="line">  icmp-blocks:</span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure>
+<p>查询服务的启动状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --query-service ftp</span><br><span class="line">yes</span><br><span class="line">firewall-cmd --query-service ssh</span><br><span class="line">yes</span><br><span class="line">firewall-cmd --query-service samba</span><br><span class="line">no</span><br><span class="line">firewall-cmd --query-service http</span><br><span class="line">no</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>&emsp;<br>2. 设置<br>iptables serviceyum -y install iptables-services<br>如果要修改防火墙配置，<br>如增加防火墙端口3306<br>vi /etc/sysconfig/iptables 增加规则-A INPUT -m state –state NEW -m tcp -p tcp –dport 3306 -j ACCEPT保存退出后</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart iptables.service </span><br><span class="line"><span class="comment">#重启防火墙使配置生效</span></span><br><span class="line">systemctl <span class="built_in">enable</span> iptables.service </span><br><span class="line"><span class="comment">#设置防火墙开机启动最后重启系统使设置生效即可。</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>linux之旅</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>linux解压打包命令</title>
+    <url>/2019/09/21/20190921linux-achriveOrUnzip/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h3 id="tar命令常用参数"><a href="#tar命令常用参数" class="headerlink" title="tar命令常用参数"></a><strong>tar命令常用参数</strong></h3><hr>
+<p>-c: 建立压缩档案<br>-x：解压<br>-t：查看内容<br>-r：向压缩归档文件末尾追加文件<br>-u：更新原压缩包中的文件这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。<br>-z：有gzip属性的<br>-j：有bz2属性的<br>-Z：有compress属性的<br>-v：显示所有过程<br>-O：将文件解开到标准输出下面的参数-f是必须的<br>-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p>
+<hr>
+<h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a><strong>压缩</strong></h3><hr>
+<p>将目录里所有jpg文件打包成tar.jpg</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar –cvf jpg.tar *.jpg</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar –czf jpg.tar.gz *.jpg</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar –cjf jpg.tar.bz2 *.jpg</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar –cZf jpg.tar.Z *.jpg</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>rar格式的压缩，需要先下载rar for linux</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rar a jpg.rar *.jpg</span><br></pre></td></tr></table></figure>
+<p>&emsp;<br>//zip格式的压缩，需要先下载zip for linux解压</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zip jpg.zip *.jpg</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a><strong>解压</strong></h3><hr>
+<p>tar –xvf file.tar //解压 tar包<br>tar -xzvf file.tar.gz //解压tar.gz<br>tar -xjvf file.tar.bz2 //解压 tar.bz2<br>tar –xZvf file.tar.Z //解压tar.Z<br>unrar e file.rar //解压rar<br>unzip file.zip //解压zip总结</p>
+<hr>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong>注意：</strong></h3><hr>
+<p>1、.tar 用 tar –xvf 解压<br>2、.gz 用 gzip -d或者gunzip 解压<br>3、.tar.gz和.tgz 用 tar –xzf 解压<br>4、.bz2 用 bzip2 -d或者用bunzip2 解压<br>5、.tar.bz2用tar –xjf 解压<br>6、.Z 用 uncompress 解压<br>7、.tar.Z 用tar –xZf 解压<br>8、.rar 用 unrar e解压<br>9、.zip 用 unzip 解压</p>
+<p>作者：醋留香<br>链接：<a href="https://www.jianshu.com/p/3d9effeef575">https://www.jianshu.com/p/3d9effeef575</a><br>来源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+]]></content>
+      <categories>
+        <category>linux之旅</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>chown命令</title>
+    <url>/2019/09/21/20190921linux-chown/</url>
+    <content><![CDATA[<p>[TOC]<br><strong>chown将指定文件的拥有者改为指定的用户或组</strong></p>
+<hr>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chown [-cfhvR] [--<span class="built_in">help</span>] [--version] user[:group] file...</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>&emsp;通过chown改变文件的拥有者和群组。在更改文件的所有者或所属群组时，可以使用用户名称和用户识别码设置。普通用户不能将自己的文件改变成其他的拥有者。其操作权限一般为管理员。</p>
+<hr>
+<h4 id="命令参数："><a href="#命令参数：" class="headerlink" title="命令参数："></a>命令参数：</h4><blockquote>
+<p>必要参数:　　　　</p>
+<ul>
+<li> -c 显示更改的部分的信息　　　　</li>
+<li> -f 忽略错误信息　　　　</li>
+<li>-h 修复符号链接　　　　</li>
+<li>-R 处理指定目录以及其子目录下的所有文件　　　　</li>
+<li>-v 显示详细的处理信息　　　　</li>
+<li>-deference 作用于符号链接的指向，而不是链接文件本身　　</li>
+</ul>
+</blockquote>
+<p>&emsp;</p>
+<blockquote>
+<p><strong>选择参数</strong>:</p>
+<ul>
+<li>–reference=<br>&lt;目录或文件&gt; 把指定的目录/文件作为参考，把操作的文件/目录设置成参考文件/目录相同拥有者和群组　　　　</li>
+<li>–from=<br>&lt;当前用户：当前群组&gt; 只有当前用户和群组跟指定的用户和群组相同时才进行改变　　　　</li>
+<li>–help <br>显示帮助信息　　　　</li>
+<li>–version <br>显示版本信息</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h4>]]></content>
+      <categories>
+        <category>linux之旅</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>echo命令常用方法总结</title>
+    <url>/2019/09/21/20190921shell-echo/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<p>echo 用于字符串的输出。命令格式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> string</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不带-e选项的 echo，将 \n 认为是普通字符；</span></span><br><span class="line">[roc@roclinux ~]$ <span class="built_in">echo</span> <span class="string">&quot;Hello World\n&quot;</span></span><br><span class="line">Hello World\n</span><br><span class="line"><span class="comment"># 使用了-e选项的 echo，会将 \n 认为是换行符。</span></span><br><span class="line">[roc@roclinux ~]$ <span class="built_in">echo</span> -e <span class="string">&quot;Hello World\n&quot;</span></span><br><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+<h2 id="echo用于显示变量"><a href="#echo用于显示变量" class="headerlink" title="echo用于显示变量"></a>echo用于显示变量</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#我们定义了一个变量, 叫作str</span></span><br><span class="line">[roc@roclinux ~]$ str=<span class="string">&quot;Hello World&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#在echo后面加上str变量, 照样可以显示出来</span></span><br><span class="line">[roc@roclinux ~]$ <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$str</span>, good morning&quot;</span></span><br><span class="line">Hello World, good morning</span><br></pre></td></tr></table></figure>
+<h2 id="echo-后面的引号"><a href="#echo-后面的引号" class="headerlink" title="echo 后面的引号"></a>echo 后面的引号</h2><table>
+<thead>
+<tr>
+<th>输入命令</th>
+<th>输出内容</th>
+<th>解 释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>echo ‘$USER * $(date)’</td>
+<td>$USER * $(date)</td>
+<td>单引号无视所有特殊字符，所有字符在它眼里 都是普通字符，都是芸芸众生</td>
+</tr>
+<tr>
+<td>echo “$USER * $(date)”</td>
+<td>root * Thu Feb 25 12:03:48 CST 2016</td>
+<td>双引号会无视文件通配符，但“$”、“\”、 会起作用，我管它们叫“美金”、“砍刀”、 “硫酸雨”</td>
+</tr>
+<tr>
+<td>echo $USER * $(date)</td>
+<td>root book others Thu Feb 25 12:03:48 CST 2016</td>
+<td>$USER 被翻译了 root, * 被翻译成了当前目录下的目录结构</td>
+</tr>
+</tbody></table>
+<h2 id="在-Shell-中显示色彩"><a href="#在-Shell-中显示色彩" class="headerlink" title="在 Shell 中显示色彩"></a>在 Shell 中显示色彩</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\033[颜色1;颜色2m 要展示的文字 \033[0m&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>格式详解：</p>
+<ul>
+<li>-e选项：表示允许反斜杠（对字符）转义。</li>
+<li>\033[颜色1；颜色2m：称为**                                                                                  转义序列**，它本身是一个整体，中间不要有空格。</li>
+<li>\033[：转义序列的开始。其中\033代表Esc符号，也可以使用\E或\e来代替。</li>
+<li>颜色1和颜色2：表示字体的前景色或背景色，至于颜色1和颜色2哪一个表示前景色，哪一个表示背景色，由其设定的数值来决定，前景色和背景色的数值空间是不同的。</li>
+<li>m：转义序列的终止标志。</li>
+<li> \033[0m：表示将颜色恢复回原来的配色。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>色彩</th>
+<th>黑</th>
+<th>红</th>
+<th>绿</th>
+<th>黄</th>
+<th>蓝</th>
+<th>洋红</th>
+<th>青</th>
+<th>白</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前景色</td>
+<td>30</td>
+<td>31</td>
+<td>32</td>
+<td>33</td>
+<td>34</td>
+<td>35</td>
+<td>36</td>
+<td>37</td>
+</tr>
+<tr>
+<td>背景色</td>
+<td>40</td>
+<td>41</td>
+<td>42</td>
+<td>43</td>
+<td>44</td>
+<td>45</td>
+<td>46</td>
+<td>47</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>linux之旅</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>随意留言区</title>
+    <url>/2019/08/08/CommentArea/</url>
+    <content><![CDATA[<h1 id="此处可以随意留言"><a href="#此处可以随意留言" class="headerlink" title="此处可以随意留言"></a>此处可以随意留言</h1><p>留下自己那些曾经想说却说不出口的话吧<br><strong>匿名留言</strong><br><strong>当然大爷们也可以留下自己的邮箱哟</strong></p>
+]]></content>
+      <tags>
+        <tag>树洞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux之间文件传输scp</title>
+    <url>/2019/09/21/20190921linux-scp/</url>
+    <content><![CDATA[<p>把本地的source.txt文件拷贝到192.168.0.10机器上的/home/work目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp /home/work/source.txt work@192.168.0.10:/home/work/ </span><br></pre></td></tr></table></figure>
+<p>把192.168.0.10机器上的source.txt文件拷贝到本地的/home/work目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp work@192.168.0.10:/home/work/source.txt /home/work/ </span><br></pre></td></tr></table></figure>
+<p>把192.168.0.10机器上的source.txt文件拷贝到192.168.0.11机器的/home/work目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp work@192.168.0.10:/home/work/source.txt work@192.168.0.11:/home/work/ </span><br></pre></td></tr></table></figure>
+<p>拷贝文件夹，加-r参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r /home/work/sourcedir work@192.168.0.10:/home/work/ </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>linux之旅</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>git add 相关命令学习</title>
+    <url>/2019/09/22/20190922gitadd/</url>
+    <content><![CDATA[<h2 id="git-add-A-和-git-add-的区别"><a href="#git-add-A-和-git-add-的区别" class="headerlink" title="git add -A 和 git add . 的区别"></a>git add -A 和 git add . 的区别</h2><ul>
+<li>git add -A  提交<strong>所有变化</strong><br>(git add –all 的缩写)<br>&emsp;</li>
+<li>git add -u  提交被<strong>修改(modified)</strong> 和被 <strong>删除(deleted)</strong> 文件，不包括新文件(new)<br>(git add –update 的缩写)<br>&emsp;</li>
+<li>git add   提交 <strong>新文件(new)</strong> 和被 <strong>修改(modified)</strong>  文件，不包括被删除(deleted)文件</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Git手札</category>
+      </categories>
+  </entry>
+  <entry>
     <title>HashMap的长度为什么必须是2的n次方</title>
     <url>/2021/07/04/HashMap%E7%9A%84%E9%95%BF%E5%BA%A6%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E6%98%AF2%E7%9A%84n%E6%AC%A1%E5%B9%82/</url>
     <content><![CDATA[<h1 id="HashMap的长度为什么必须是2的n次方"><a href="#HashMap的长度为什么必须是2的n次方" class="headerlink" title="HashMap的长度为什么必须是2的n次方"></a>HashMap的长度为什么必须是2的n次方</h1><p>首先我们看下<code>HashMap</code>中的源码当中那里奠定了长度是<strong>2的n次方</strong>，并且是靠近<code>cap</code>这个值<code>最近的2的n次方</code></p>
@@ -225,6 +518,44 @@
       </tags>
   </entry>
   <entry>
+    <title>git merge命令解析</title>
+    <url>/2019/09/22/gitmerge%E5%92%8Cgitbase/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h2 id="git-merge用途："><a href="#git-merge用途：" class="headerlink" title="git-merge用途："></a>git-merge用途：</h2><ol>
+<li>用于git-pull中，来整合另一代码仓库中的变化（即：git pull = git fetch + git merge）</li>
+<li>用于从一个分支到另一个分支的合并<blockquote>
+<p>警告：运行git-merge时含有大量的未commit文件很容易让你陷入困境，这将使你在冲突中难以回退。因此非常不鼓励在使用git-merge时存在未commit的文件，建议使用git-stash命令将这些未commit文件暂存起来，并在解决冲突以后使用git stash pop把这些未commit文件还原出来。</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Git手札</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>git push/pull 远程库学习</title>
+    <url>/2019/09/22/git%E6%97%A5%E5%B8%B8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="git-push-pull-远程库学习"><a href="#git-push-pull-远程库学习" class="headerlink" title="git push/pull 远程库学习"></a>git push/pull 远程库学习</h3><p>git push 命令用于将本地分支更新，推送到远程主机。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong> ： 分支推送顺序写法是&lt;来源地&gt;:&lt;目的地&gt;</p>
+<ul>
+<li>git pull 是&lt;远程分支&gt;:&lt;本地分支&gt;</li>
+<li>git push 是&lt;本地分支&gt;:&lt;远程分支&gt;<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3></li>
+</ul>
+<p>1.本地分支与远程分支存在追踪关系</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push origin master</span></span><br></pre></td></tr></table></figure>
+<p>以上命令，将本地master分支推送到origin主机的master分支。<br>&nbsp;<br>2.省略本地分支</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push origin :master</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 等同于</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push origin --delete master</span></span><br></pre></td></tr></table></figure>
+<p>以上推送一个空的本地分支到远程分支，表示删除远程分支<br>&nbsp;<br>3.使用-u选项制定一个默认主机，这样在后面就可以不添加任何参数，使用git push</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push -u origin master</span></span><br></pre></td></tr></table></figure>
+<p>以上表示将本地的master分支推送到origin主机，同时指定origin为默认主机，</p>
+]]></content>
+      <categories>
+        <category>Git手札</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/07/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -243,8 +574,33 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Linux下查看CPU型号,内存大小,硬盘空间的命令</title>
+    <url>/2019/09/21/linux%E6%A3%80%E6%9F%A5%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<h4 id="1-查看CPU"><a href="#1-查看CPU" class="headerlink" title="1. 查看CPU"></a>1. 查看CPU</h4><p>1.1 查看CPU个数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat /proc/cpuinfo | grep <span class="string">&quot;physical id&quot;</span> | uniq | wc -l</span><br></pre></td></tr></table></figure>
+<p> <strong>uniq命令：删除重复行;wc –l命令：统计行数</strong></p>
+<p>1.2 查看CPU核数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat /proc/cpuinfo | grep <span class="string">&quot;cpu cores&quot;</span> | uniq</span><br><span class="line"></span><br><span class="line">cpu cores : 4</span><br></pre></td></tr></table></figure>
+<p>1.3 查看CPU型号</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat /proc/cpuinfo | grep <span class="string">&#x27;model name&#x27;</span> |uniq</span><br><span class="line"></span><br><span class="line">model name : Intel(R) Xeon(R) CPU E5630 @ 2.53GHz</span><br></pre></td></tr></table></figure>
+
+
+<p>总结：该服务器有2个4核CPU，型号Intel(R) Xeon(R) CPU E5630 @ 2.53GHz</p>
+<h4 id="2-查看内存"><a href="#2-查看内存" class="headerlink" title="2. 查看内存"></a>2. 查看内存</h4><p>2.1 查看内存总数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat /proc/meminfo | grep MemTotal</span><br><span class="line"></span><br><span class="line">MemTotal: 32941268 kB <span class="comment"># 内存32G</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-查看硬盘"><a href="#3-查看硬盘" class="headerlink" title="3. 查看硬盘"></a>3. 查看硬盘</h4><p>3.1 查看硬盘大小</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ fdisk -l | grep Disk</span><br></pre></td></tr></table></figure>
+
+<p>df -hl 查看磁盘剩余空间<br> <br>df -h 查看每个根路径的分区大小<br> <br>du -sh [目录名] 返回该目录的大小<br> <br>du -sm [文件夹] 返回该文件夹总M数<br> <br>du -h [目录名] 查看指定文件夹下的所有文件大小（包含子文件夹）</p>
+]]></content>
+      <categories>
+        <category>linux之旅</category>
+      </categories>
+  </entry>
+  <entry>
     <title>集合Map简单介绍</title>
-    <url>/2021/07/03/interview-experience/%E5%BE%97%E7%89%A9%E9%9D%A2%E7%BB%8F20210323/</url>
+    <url>/2021/07/03/interview-experience/%E9%9B%86%E5%90%88Map%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<h1 id="集合Map简单介绍"><a href="#集合Map简单介绍" class="headerlink" title="集合Map简单介绍"></a>集合Map简单介绍</h1><p>Map是一种<strong>键值对集合</strong>，每一个元素都包含一个键对象和一个值对象。其中键对象是不允许重复的。</p>
 <p>Map接口与Collection接口是不同的，Map接口有两个主要实现类<code>HashMap类</code>、<code>TreeMap类</code>，<strong>HashMap类按哈希算法来存取键值对象，而TreeMap类可以对键值对象进行排序。</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">Map--&gt;HashMap</span><br><span class="line">Map--&gt;HashTable</span><br><span class="line">Map--&gt;TreeMap</span><br><span class="line">Map--&gt;IdentityHashMap</span><br><span class="line">Map--&gt;WeakHashMap</span><br></pre></td></tr></table></figure>
@@ -311,6 +667,29 @@
 ]]></content>
       <tags>
         <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>贾从谦</title>
+    <url>/2019/03/28/me/</url>
+    <content><![CDATA[<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>From：长春理工大学<br>专业：经济学<br>岗位：Java开发工程师<br>座右铭：学无止境，永不言弃</p>
+<h2 id="收获与感悟"><a href="#收获与感悟" class="headerlink" title="收获与感悟"></a>收获与感悟</h2><blockquote>
+<p><strong>客服</strong>：<br>感悟：在客服实践时，开始只是单纯以为接电话或者是挨挨骂，实际证实，还是我太单纯了。客服的工作一方面得保证公司形象，另一方面得解决客户的问题，在工作过程当中备受煎熬，但也有一些客户和我聊得很开心，有欢笑也有憋屈。<br>收获：沟通基本上是客服的全部工作内容了，在客服实践过程中，磨了脾气、历了性子。耐心、细心、敢于直面问题是我在客服工作中最大的收获。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>转运中心</strong>：<br>感悟：在转运中心实践过程中，我感受到了夜班的艰辛，同时也能感受到了信息化技术对生产效率的提升。在很多工作中都需要团队进行执行，有的团队配合默契，也有的团队存在内部问题（譬如:堵多头领导）。<br>收获：坚持和稳定是工作的根基，同时也要学会为人处世，办事多考虑。</p>
+</blockquote>
+<h2 id="职业规划"><a href="#职业规划" class="headerlink" title="职业规划"></a>职业规划</h2><ol>
+<li>掌握工作必备技能，规划学习计划，弥补自身专业缺陷；</li>
+<li>结合自身专业和技能，实现拟定的目标；</li>
+</ol>
+]]></content>
+      <categories>
+        <category>云服务器</category>
+      </categories>
+      <tags>
+        <tag>biaoqian</tag>
       </tags>
   </entry>
 </search>
